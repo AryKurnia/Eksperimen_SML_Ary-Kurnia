@@ -60,8 +60,8 @@ X_test[numeric_features] = scaler.transform(X_test[numeric_features])
 
 # SIMPAN
 # memastikan folder tujuan
-os.makedirs('./mobile-price-classification_preprocessing', exist_ok=True)
+os.makedirs('preprocessing/mobile-price-classification_preprocessing', exist_ok=True)
 
-X_train.to_csv('mobile-price-classification_preprocessing/X_train_processed.csv', index=False)
-y_train.to_csv('mobile-price-classification_preprocessing/y_train_processed.csv', index=False)
-X_test.to_csv('mobile-price-classification_preprocessing/X_test_processed.csv', index=False)
+X_train.to_csv('preprocessing/mobile-price-classification_preprocessing/X_train_processed.csv', index=False)
+y_train.to_csv('preprocessing/mobile-price-classification_preprocessing/y_train_processed.csv', index=False)
+X_test.to_csv('preprocessing/mobile-price-classification_preprocessing/X_test_processed.csv', index=False)
