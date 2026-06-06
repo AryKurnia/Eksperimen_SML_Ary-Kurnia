@@ -1,4 +1,5 @@
 # Import Library yang Dibutuhkan
+import joblib
 import pandas as pd
 import os
 from sklearn.preprocessing import StandardScaler
@@ -65,3 +66,4 @@ os.makedirs('preprocessing/mobile-price-classification_preprocessing', exist_ok=
 X_train.to_csv('preprocessing/mobile-price-classification_preprocessing/X_train_processed.csv', index=False)
 y_train.to_csv('preprocessing/mobile-price-classification_preprocessing/y_train_processed.csv', index=False)
 X_test.to_csv('preprocessing/mobile-price-classification_preprocessing/X_test_processed.csv', index=False)
+joblib.dump(scaler, 'preprocessing/mobile-price-classification_preprocessing/scaler.pkl')
