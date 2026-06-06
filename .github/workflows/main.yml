@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  preprocessing:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+ 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Preprocessing Code
+      run: |
+        python preprocessing/automate_Ary-Kurnia.py
+
+    - name: Commit preprocessing output
+      working-directory: preprocessing
+      run: |
+        git config --global user.name ${{ secrets.username }}
+        git config --global user.email ${{ secrets.email }}
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        git add mobile-price-classificationt_preprocessing/
+        git commit -m "Save from CI run" || echo "Nothing to commit"
+        git push origin main
+        
