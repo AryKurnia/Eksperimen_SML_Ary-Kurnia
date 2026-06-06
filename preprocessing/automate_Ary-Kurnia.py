@@ -4,8 +4,8 @@ import os
 from sklearn.preprocessing import StandardScaler
 
 # Load Dataset
-train = pd.read_csv('../mobile-price-classification_raw/train.csv')
-test = pd.read_csv('../mobile-price-classification_raw/test.csv')
+train = pd.read_csv('mobile-price-classification_raw/train.csv')
+test = pd.read_csv('mobile-price-classification_raw/test.csv')
 
 # TRAIN
 # Handle missing values
@@ -60,8 +60,8 @@ X_test[numeric_features] = scaler.transform(X_test[numeric_features])
 
 # SIMPAN
 # memastikan folder tujuan
-os.makedirs('./mobile-price-classificationt_preprocessing', exist_ok=True)
+os.makedirs('./mobile-price-classification_preprocessing', exist_ok=True)
 
-X_train.to_csv('mobile-price-classificationt_preprocessing/X_train_processed.csv', index=False)
-y_train.to_csv('mobile-price-classificationt_preprocessing/y_train_processed.csv', index=False)
-X_test.to_csv('mobile-price-classificationt_preprocessing/X_test_processed.csv', index=False)
+X_train.to_csv('mobile-price-classification_preprocessing/X_train_processed.csv', index=False)
+y_train.to_csv('mobile-price-classification_preprocessing/y_train_processed.csv', index=False)
+X_test.to_csv('mobile-price-classification_preprocessing/X_test_processed.csv', index=False)
